@@ -2,10 +2,10 @@
 
 public class GasContainer : Container, IHazardNotifier
 {
-    public GasContainer(double inWeight, double height, double outWeight, double deepness, string name, double maxCapacity, ContainerType containerType) : 
-        base(inWeight, height, outWeight, deepness, name, maxCapacity, containerType)
+    public GasContainer(double height, double outWeight, double deepness, double maxCapacity) : 
+        base(height, outWeight, deepness, maxCapacity)
     {
-        this.name = "KON-" + ContainerType.G.ToString() + new Random().Next().ToString();
+        this.Name = "KON-G-" + new Random().Next().ToString();
     }
 
     public override void clear()
@@ -15,6 +15,6 @@ public class GasContainer : Container, IHazardNotifier
 
     public void Notify()
     {
-        Console.WriteLine("WARNING: Hazardous action with container: " + this.name);
+        Console.WriteLine("WARNING: Hazardous action with container: " + this.Name);
     }
 }

@@ -6,17 +6,20 @@ public class Container
     private double height { get; set; }
     private double outWeight { get; set; }
     private double deepness { get; set; }
-    protected string name { get; set; }
-    protected double maxCapacity { get; set; }
+    private string name { get; set; }
+    private double maxCapacity { get; set; }
+    public string Name { get => name; set => name = value; }
+    public double MaxCapacity { get => maxCapacity; set => maxCapacity = value; }
+    public double InWeight { get => inWeight; set => inWeight = value; }
 
-    public Container(double inWeight, double height, double outWeight, double deepness, string name, double maxCapacity, ContainerType containerType)
+    public Container(double height, double outWeight, double deepness, double maxCapacity)
     {
-        this.inWeight = inWeight;
+        this.inWeight = 0;
         this.height = height;
         this.outWeight = outWeight;
         this.deepness = deepness;
         this.maxCapacity = maxCapacity;
-        this.name = "KON-" + containerType.ToString() + "-" + new Random().Next().ToString();
+        this.name = "KON-" + 0 + "-" + new Random().Next().ToString();
     }
 
     public virtual void clear()

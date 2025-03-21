@@ -6,17 +6,17 @@ public class LiquidContainer : Container, IHazardNotifier
 {
     private bool isHazardous;
     
-    public LiquidContainer(double inWeight, double height, double outWeight, double deepness, string name, double maxCapacity, ContainerType containerType, bool isHazardous) : 
-        base(inWeight, height, outWeight, deepness, name, maxCapacity, containerType)
+    public LiquidContainer(double height, double outWeight, double deepness, double maxCapacity, bool isHazardous) : 
+        base(height, outWeight, deepness, maxCapacity)
     {
-        this.name =  "KON-" + ContainerType.L.ToString() + "-" + new Random().Next().ToString();
+        this.Name =  "KON-L-" + new Random().Next().ToString();
         this.isHazardous = isHazardous;
         
     }
 
     public void Notify()
     {
-        Console.WriteLine("WARNING: Hazardous action with container: " + this.name);
+        Console.WriteLine("WARNING: Hazardous action with container: " + this.Name);
     }
 
     public override void loadUp(double amount)
@@ -27,7 +27,7 @@ public class LiquidContainer : Container, IHazardNotifier
         }
         Console.WriteLine("This container can be loaded up only to 90% of its capacity");
 
-        if (this.isHazardous && amount > 0.9 * this.maxCapacity)
+        if (this.isHazardous && amount > 0.9 * this.MaxCapacity)
         {
             Notify();
         }
