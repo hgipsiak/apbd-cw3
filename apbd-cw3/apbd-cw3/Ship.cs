@@ -31,9 +31,9 @@ public class Ship
         
     }
 
-    public void AddContainers(List<Container> containers)
+    public void AddContainers(List<Container> containersList)
     {
-        foreach (Container c in containers)
+        foreach (Container c in containersList)
         {
             if (currentWeight + c.InWeight <= maxWeight * 1000)
             {
@@ -44,6 +44,36 @@ public class Ship
             {
                 Console.WriteLine("WARNING: Too much weight");
             }
+        }
+    }
+
+    public void removeContainer(Container container)
+    {
+        this.containers.Remove(container);
+    }
+
+    public void replaceContainer(Container c1, Container c2)
+    {
+        removeContainer(c1);
+        this.containers.Add(c2);
+    }
+
+    public void exchangeContainer(Ship s, Container c)
+    {
+        this.containers.Remove(c);
+        s.containers.Add(c);
+    }
+
+    public void showInfo()
+    {
+        Console.WriteLine("Knots: " + this.knots +
+                          "\nMax Containers: " + this.maxContainers +
+                          "\nMax Weight: " + this.maxWeight +
+                          "\nCurrent Weight: " + this.currentWeight);
+        Console.WriteLine("Containers: ");
+        foreach (Container c in containers)
+        {
+            c.showInfo();
         }
     }
 }

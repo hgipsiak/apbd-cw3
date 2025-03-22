@@ -5,7 +5,7 @@ public class Product
     private string name;
     public string Name {get; set; }
     private double temperature;
-    public double Temperature {get => Temperature; set => Temperature = value; }
+    public double Temperature {get => temperature; set => temperature = value; }
 
     public Product(string name, double temperature)
     {

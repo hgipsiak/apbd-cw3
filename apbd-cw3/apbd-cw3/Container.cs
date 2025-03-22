@@ -22,9 +22,10 @@ public class Container
         this.name = "KON-" + 0 + "-" + new Random().Next().ToString();
     }
 
-    public virtual void clear()
+    public virtual void unload()
     {
         this.inWeight = 0;
+        Console.WriteLine(this.Name + " unloaded");
     }
 
     public virtual void loadUp(double amount)
@@ -34,5 +35,15 @@ public class Container
             throw new OverflowException();
         }
         this.inWeight = amount;
+    }
+
+    public void showInfo()
+    {
+        Console.WriteLine("Name: " + this.Name + "\n inWeight: " 
+                          + this.inWeight + "\n outWeight: " +
+                          this.outWeight + "\n deepness: " +
+                          this.deepness + "\n maxCapacity: " +
+                          this.maxCapacity + "\n height: " +
+                          this.height);
     }
 }
