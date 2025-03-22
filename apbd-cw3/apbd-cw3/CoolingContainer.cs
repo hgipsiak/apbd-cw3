@@ -18,7 +18,7 @@ public class CoolingContainer : Container
         }
     }
 
-    public void loadUp(double amount, Product product)
+    public void LoadUp(double amount, Product product)
     {
         if (product.Name.Equals(this.heldProduct.Name))
         {

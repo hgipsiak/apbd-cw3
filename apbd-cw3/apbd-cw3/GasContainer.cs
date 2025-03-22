@@ -11,7 +11,7 @@ public class GasContainer : Container, IHazardNotifier
         this.Name = "KON-G-" + new Random().Next().ToString();
     }
 
-    public override void unload()
+    public override void Unload()
     {
         this.inWeight = 0.05 * this.inWeight;
         Console.WriteLine(this.Name + " unloaded");

@@ -11,6 +11,7 @@ public class Container
     public string Name { get => name; set => name = value; }
     public double MaxCapacity { get => maxCapacity; set => maxCapacity = value; }
     public double InWeight { get => inWeight; set => inWeight = value; }
+    public double OutWeight { get => outWeight; set => outWeight = value; }
 
     public Container(double height, double outWeight, double deepness, double maxCapacity)
     {
@@ -22,13 +23,13 @@ public class Container
         this.name = "KON-" + 0 + "-" + new Random().Next().ToString();
     }
 
-    public virtual void unload()
+    public virtual void Unload()
     {
         this.inWeight = 0;
         Console.WriteLine(this.Name + " unloaded");
     }
 
-    public virtual void loadUp(double amount)
+    public virtual void LoadUp(double amount)
     {
         if (amount > this.maxCapacity)
         {
@@ -37,7 +38,7 @@ public class Container
         this.inWeight = amount;
     }
 
-    public void showInfo()
+    public void ShowInfo()
     {
         Console.WriteLine("Name: " + this.Name + "\n inWeight: " 
                           + this.inWeight + "\n outWeight: " +

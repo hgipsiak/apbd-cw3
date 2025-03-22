@@ -19,7 +19,7 @@ public class LiquidContainer : Container, IHazardNotifier
         Console.WriteLine("WARNING: Hazardous action with container: " + this.Name);
     }
 
-    public override void loadUp(double amount)
+    public override void LoadUp(double amount)
     {
         if (this.isHazardous)
         {
